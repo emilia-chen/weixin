@@ -1,12 +1,15 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/animation/animation",
+    "pages/logs/logs",
+    "pages/test/test",
+    "pages/swiper/swiper"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "Manulife WeChat Demo",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"
