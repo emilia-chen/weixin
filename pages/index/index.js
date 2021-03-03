@@ -9,10 +9,45 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  bindViewTap: function() {
+  bindAnimationTap:()=>{
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '/pages/animation/animation'
+    }) 
+  },
+  bindSwiperTap:()=>{
+    wx.navigateTo({
+      url: '/pages/swiper/swiper'
+    }) 
+  },
+  changeVlaue:function(){
+    console.log('this',this)
+    this.data.motto='123'
+    // this.setData({
+    //   motto:13
+    // })
+    console.log('this1',this)
+  },
+  useHttp:()=>{
+    wx.request({
+      url: 'https://api.seniverse.com/v3/weather/now.json?key=oudikeyru8gzhosh&location=beijing&language=zh-Hans&unit=c',
+      success:(res)=>{
+        console.log('res',res)
+      }})
+      
+  },
+  scanCode:()=>{
+// 允许从相机和相册扫码
+wx.scanCode({
+  success (res) {
+    console.log(res)
+  }
+})
+  },
+  //事件处理函数
+  bindViewTap: (e)=> {
+    console.log('e',e)
+    wx.navigateTo({
+      url: '/pages/logs/logs'
     })
     // wx.chooseImage({
     //   count: 1,
@@ -25,8 +60,14 @@ Page({
     // })
   
   },
+  // created:()=>{
+  //   console.log('created')
+  // },
+  onUnload: function() {
+    console.log('onUnLoad')
+  },
   onLoad: function() {
-    console.log('onLoad',wx.env)
+    console.log('onLoad',wx.env,'this',this)
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
